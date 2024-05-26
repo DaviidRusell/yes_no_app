@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:yes_no_app/domain/entities/message.dart';
+import 'package:yes_no_app/presentation/providers/chat_provider.dart';
 import 'package:yes_no_app/presentation/widgets/chat/her_message_bubble.dart';
 
 import '../../widgets/chat/my_message_bubble.dart';
@@ -11,13 +14,13 @@ class ChatScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Yise ❤️'),
+          title: const Text('Yes or No'),
           centerTitle: false,
           leading: const Padding(
             padding: EdgeInsets.all(5.0),
             child: CircleAvatar(
               backgroundImage: NetworkImage(
-                  'https://m.media-amazon.com/images/I/51+ZJhpTbYL._UXNaN_FMjpg_QL85_.jpg'),
+                  'https://definicion.de/wp-content/uploads/2018/06/incognita-1.jpg'),
             ),
           ),
         ),
@@ -28,6 +31,7 @@ class ChatScreen extends StatelessWidget {
 class _ChatView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final chatProvider = context.watch<ChatProvider>();
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -35,14 +39,22 @@ class _ChatView extends StatelessWidget {
           children: [
             Expanded(
                 child: ListView.builder(
-              itemCount: 100,
+              controller: chatProvider.chatScrollController,
+              itemCount: chatProvider.listMessage.length,
               itemBuilder: (context, index) {
-                return index % 2 == 0
-                    ? const MyMessageBubble()
-                    : const HerMessageBubble();
+                final message = chatProvider.listMessage[index];
+                return (message.fromWho == FromWho.me)
+                    ? MyMessageBubble(
+                        message: message,
+                      )
+                    : HerMessageBubble(
+                        message: message,
+                      );
               },
             )),
-            const MessageFieldBox()
+            MessageFieldBox(
+              onValue: (value) => chatProvider.sendMessage(value),
+            )
           ],
         ),
       ),

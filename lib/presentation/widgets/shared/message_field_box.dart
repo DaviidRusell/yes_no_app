@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../providers/chat_provider.dart';
 
 class MessageFieldBox extends StatelessWidget {
-  const MessageFieldBox({super.key});
+  final ValueChanged<String> onValue;
+
+  const MessageFieldBox({super.key, required this.onValue});
 
   @override
   Widget build(BuildContext context) {
+    final chatProvider = context.watch<ChatProvider>();
     final textController = TextEditingController();
     final focusNode = FocusNode();
     final outlineInputBorder = UnderlineInputBorder(
@@ -20,8 +26,10 @@ class MessageFieldBox extends StatelessWidget {
             icon: const Icon(Icons.send_outlined),
             onPressed: () {
               final textValue = textController.value.text;
-              print("Button: $textValue");
-              textController.clear();
+              if (textValue.isNotEmpty) {
+                chatProvider.sendMessage(textValue);
+                textController.clear();
+              }
             }));
 
     return TextFormField(
@@ -32,9 +40,11 @@ class MessageFieldBox extends StatelessWidget {
       controller: textController,
       decoration: inputDecoration,
       onFieldSubmitted: (value) {
-        print("Submid value: $value");
-        textController.clear();
-        focusNode.requestFocus();
+        if (value.isNotEmpty) {
+          chatProvider.sendMessage(value);
+          textController.clear();
+          focusNode.requestFocus();
+        }
       },
     );
   }
