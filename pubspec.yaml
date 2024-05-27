@@ -32,6 +32,7 @@ dependencies:
   dio: ^5.4.3+1
   flutter:
     sdk: flutter
+  flutter_native_splash: ^2.4.0
   provider: ^6.1.2
 
 dev_dependencies:
@@ -46,6 +47,17 @@ flutter_launcher_icons:
   ios: true
   image_path: "assets/yesno.png"
   min_sdk_android: 21 # android min sdk min:16, default 21
+
+flutter_native_splash:
+  color: "#000000"
+  background_image: "assets/yesno.png"
+
+  android_12:
+    # Splash screen background color.
+    color: "#000000"
+
+    # App icon background color.
+    icon_background_color: "#000000"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
