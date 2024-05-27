@@ -14,13 +14,13 @@ class ChatScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Yes or No'),
+          title: const Text('YesOrNo'),
           centerTitle: false,
           leading: const Padding(
             padding: EdgeInsets.all(8.0),
             child: CircleAvatar(
                 backgroundImage: AssetImage(
-              'assets/intercambio.png',
+              'assets/yesno.png',
             )),
           ),
         ),
