@@ -17,11 +17,11 @@ class ChatScreen extends StatelessWidget {
           title: const Text('Yes or No'),
           centerTitle: false,
           leading: const Padding(
-            padding: EdgeInsets.all(5.0),
+            padding: EdgeInsets.all(8.0),
             child: CircleAvatar(
-              backgroundImage: NetworkImage(
-                  'https://definicion.de/wp-content/uploads/2018/06/incognita-1.jpg'),
-            ),
+                backgroundImage: AssetImage(
+              'assets/intercambio.png',
+            )),
           ),
         ),
         body: _ChatView());

@@ -19,23 +19,23 @@ class HerMessageBubble extends StatelessWidget {
         Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              color: colors.secondary,
+              color: colors.onSecondary,
             ),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
               child: Text(
                 message.text,
-                style: const TextStyle(color: Colors.white),
+                style: Theme.of(context).textTheme.bodyLarge,
               ),
             )),
         const SizedBox(
-          height: 1,
+          height: 5,
         ),
         _ImageBubble(
           message: message,
         ),
         const SizedBox(
-          height: 5,
+          height: 10,
         ),
       ],
     );
@@ -63,7 +63,7 @@ class _ImageBubble extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
             height: 150,
             width: size.width * 0.7,
-            child: const Text('Mi amor esta enviando un meme...'),
+            child: const Text('YesOrNo is sending you a sticker...'),
           );
         },
       ),

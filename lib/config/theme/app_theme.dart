@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-const _customColor = Color(0xFF530BEF);
+const _customColor = Color.fromRGBO(15, 90, 20, 1);
 
 const List<Color> _colorsThemes = [
   _customColor,
+  Colors.indigo,
   Colors.red,
   Colors.blue,
-  Colors.green,
   Colors.yellow,
   Colors.orange,
   Colors.pink,
@@ -20,5 +20,7 @@ class AppTheme {
             'Rango no valido (0-6)');
 
   ThemeData theme() => ThemeData(
-      useMaterial3: true, colorSchemeSeed: _colorsThemes[selectedColor]);
+      useMaterial3: true,
+      colorSchemeSeed: _colorsThemes[selectedColor],
+      brightness: Brightness.dark);
 }
