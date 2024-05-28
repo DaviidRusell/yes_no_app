@@ -22,5 +22,8 @@ class AppTheme {
   ThemeData theme() => ThemeData(
       useMaterial3: true,
       colorSchemeSeed: _colorsThemes[selectedColor],
-      brightness: Brightness.dark);
+      brightness: Brightness.dark,
+      filledButtonTheme: FilledButtonThemeData(
+          style: FilledButton.styleFrom(
+              backgroundColor: _colorsThemes[selectedColor])));
 }
