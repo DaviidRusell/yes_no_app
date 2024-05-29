@@ -4,7 +4,9 @@ import 'package:yes_no_app/domain/entities/message.dart';
 import 'package:yes_no_app/presentation/providers/chat_provider.dart';
 import 'package:yes_no_app/presentation/widgets/chat/her_message_bubble.dart';
 
+import '../../../infrastructure/models/admob_helper.dart';
 import '../../widgets/chat/my_message_bubble.dart';
+import '../../widgets/shared/banner_admob.dart';
 import '../../widgets/shared/message_field_box.dart';
 
 class ChatScreen extends StatelessWidget {
@@ -12,19 +14,22 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final myBanner = AdmobHelper.getBannerAd();
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('YesOrNo'),
-          centerTitle: false,
-          leading: const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: CircleAvatar(
-                backgroundImage: AssetImage(
-              'assets/yesno.png',
-            )),
-          ),
+      appBar: AppBar(
+        title: const Text('YesOrNo'),
+        centerTitle: false,
+        leading: const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: CircleAvatar(
+              backgroundImage: AssetImage(
+            'assets/yesno.png',
+          )),
         ),
-        body: _ChatView());
+      ),
+      body: _ChatView(),
+      bottomNavigationBar: BannerAdMob(myBanner: myBanner),
+    );
   }
 }
 
