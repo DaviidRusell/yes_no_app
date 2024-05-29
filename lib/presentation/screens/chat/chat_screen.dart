@@ -13,17 +13,17 @@ class ChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // appBar: AppBar(
-        //   title: const Text('YesOrNo'),
-        //   centerTitle: false,
-        //   leading: const Padding(
-        //     padding: EdgeInsets.all(8.0),
-        //     child: CircleAvatar(
-        //         backgroundImage: AssetImage(
-        //       'assets/yesno.png',
-        //     )),
-        //   ),
-        // ),
+        appBar: AppBar(
+          title: const Text('YesOrNo'),
+          centerTitle: false,
+          leading: const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: CircleAvatar(
+                backgroundImage: AssetImage(
+              'assets/yesno.png',
+            )),
+          ),
+        ),
         body: _ChatView());
   }
 }

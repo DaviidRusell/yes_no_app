@@ -24,8 +24,8 @@ class MyApp extends StatelessWidget {
         title: 'YesOrNo',
         initialRoute: 'home',
         routes: {
-          'home': (_) => const HomeScreen(),
-          'chat': (_) => const ChatScreen()
+          'home': (context) => const HomeScreen(),
+          'chat': (context) => const ChatScreen()
         },
       ),
     );
