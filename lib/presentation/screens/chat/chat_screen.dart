@@ -36,12 +36,14 @@ class ChatScreen extends StatelessWidget {
 class _ChatView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final myBanner = AdmobHelper.getBannerAd();
     final chatProvider = context.watch<ChatProvider>();
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Column(
           children: [
+            BannerAdMob(myBanner: myBanner),
             Expanded(
                 child: ListView.builder(
               controller: chatProvider.chatScrollController,
