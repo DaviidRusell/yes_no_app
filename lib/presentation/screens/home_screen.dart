@@ -39,6 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final text = Theme.of(context).textTheme.bodySmall;
     final myBanner = AdmobHelper.getBannerAd();
     return Scaffold(
       appBar: AppBar(
@@ -68,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Text(
                   'End the sentence with "?" when you want to ask a question.',
-                  style: Theme.of(context).textTheme.bodyLarge,
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
                 const SizedBox(
                   height: 20,
@@ -82,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Text(
                   '✅Is it going to rain today?\n✅Should I buy an ice cream?\n✅Will my team win the game?',
-                  style: Theme.of(context).textTheme.bodyLarge,
+                  style: text,
                 ),
                 const SizedBox(
                   height: 20,
@@ -96,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Text(
                   '❌Is it going to rain today\n❌Should I buy an ice cream\n❌Will my team win the game',
-                  style: Theme.of(context).textTheme.bodyLarge,
+                  style: text,
                 ),
                 const SizedBox(
                   height: 20,
@@ -110,9 +111,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: Theme.of(context).textTheme.bodySmall,
                   maxLines: 3,
                 ),
-                const SizedBox(
-                  height: 50,
-                ),
+                
 
                 Center(
                     child: IconButton(
